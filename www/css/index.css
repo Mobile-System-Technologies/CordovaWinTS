@@ -38,6 +38,7 @@
 /*SplitView content style*/
 #app .win-splitview-content {
     /* Area del contenido del splitview */
+    background-color:transparent;
 }
 
 #app .contenttext {
@@ -45,3 +46,15 @@
     margin-top: 6px;
 }
 
+#app .goupsPivot {
+}
+
+#app .goupsPivot div.win-pivot-item {
+    left:0px !important;
+    visibility: visible;
+    width:100%;    
+}
+#app .goupsPivot .win-pivot .win-pivot-surface {
+    width: 100%;
+    position: fixed;
+}

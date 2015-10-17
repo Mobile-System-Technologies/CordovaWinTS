@@ -11,11 +11,11 @@
     <title>CordovaWinTS</title>
 
     <!-- CordovaWinTS references -->
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="scripts/WinJS/css/ui-dark.css" rel="stylesheet" />
+    <link id="bootstrapcss" href="css/bootstrap-dark.css" rel="stylesheet" />
+    <link id="winjscss" href="scripts/WinJS/css/ui-dark.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet" />
 </head>
-<body>
+<body class="win-type-body">
     <div id="app">
         <div class="splitView" data-win-control="WinJS.UI.SplitView">
             <!-- Pane area -->
@@ -28,15 +28,36 @@
                 </div>
 
                 <div class="nav-commands">
-                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Home', icon: 'home'}"></div>
-                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Favorite', icon: 'favorite'}"></div>
-                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'Settings', icon: 'settings'}"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ id:'home', label: 'Home', icon: 'home', onclick: index.navigate }"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ id:'grupos', label: 'Favorite', icon: 'favorite', onclick: index.navigate}"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ id:'settings', label: 'Settings', icon: 'settings', onclick: index.navigate}"></div>
                 </div>
             </div>
 
             <!-- Content area -->
             <div class="contenttext container">
-                <h2 class="win-h1 jumbotron">Home!</h2>
+                <!-- Necesitamos un Template para la lista de estudiantes por grupo -->
+                <div class="plantillaEstudiantes" data-win-control="WinJS.Binding.Template">
+                    <!-- Aqui pondremos los Datos del Estudiante -->
+                    <div class="estudiante">
+                        <!-- Foto del Estudiante -->
+                        <div class="fotoEstudiante"> <img class="fotoEstudiante" src="#" data-win-bind="src: icono" /> </div>
+                        <!-- Envoltorio del Estudiante -->
+                        <div class="contenidoEstudiante">
+                            <!-- Los Datos del Estudiante -->
+                            <div class="informacionEstudiante">
+                                <!-- Gracias al Control WinJS.Binding.List(); podemos accesar directamente a las propiedades del objeto
+                         En este caso podemos accesar directamente al objeto por medio del nombre de el atributo marcado
+                         En el Arreglo que se uso para construir la lista. -->
+                                <div class="nomEstudiante" data-win-bind="textContent: nombre "> </div>
+                                <div class="apEstudiante" data-win-bind="textContent: apellido "> </div>
+                                <div class="grado" data-win-bind="textContent: promedio "> </div>
+                                <!-- data-win-bind es una propiedad de la libreria WinJS que nos permite enlazar la informacion que necesitamos
+                         donde la necesitamos siquiera antes de tener esa informacion lista. -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="content"></div>
             </div>
         </div>
