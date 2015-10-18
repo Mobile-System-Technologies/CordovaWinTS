@@ -28,7 +28,7 @@ module CordovaWinTS
                             break;
                         case 'grupos':
                             viewLoader.pageUri = "./templates/grupos.html";
-                            viewLoader.renderFragment(content).done(function ()
+                            viewLoader.renderFragmentCopy(content).done(function ()
                             {
                                 WinJS.UI.processAll(content);
                             },
@@ -111,38 +111,11 @@ module CordovaWinTS
         { icono: foto, nombre: 'Ivette ', apellido: ' Macias', promedio: 10.0 }
 
     ]);
-    var tsm53 = new WinJS.Binding.List([
-        { icono: foto, nombre: 'Esperanza ', apellido: ' Wergzik', promedio: 7.0 },
-        { icono: foto, nombre: 'Efren ', apellido: ' Lopez', promedio: 10.0 },
-        { icono: foto, nombre: 'Derek ', apellido: ' Deck', promedio: 10.0 },
-        { icono: foto, nombre: 'Fausto ', apellido: ' Podlosky', promedio: 9.0 },
-        { icono: foto, nombre: 'Ermenegildo ', apellido: ' YL3', promedio: 8.5 }
-
-    ]);
-    var tsm54 = new WinJS.Binding.List([
-        { icono: foto, nombre: 'Jocelyn ', apellido: ' Perez', promedio: 8.9 },
-        { icono: foto, nombre: 'Javier ', apellido: ' Martinez', promedio: 9.4 },
-        { icono: foto, nombre: 'Esmeralda ', apellido: ' Robles', promedio: 8.6 },
-        { icono: foto, nombre: 'Andres ', apellido: ' Bemol', promedio: 10.0 },
-        { icono: foto, nombre: 'Laura ', apellido: ' Hinojos', promedio: 8.9 }
-
-    ]);
-    var tsm55 = new WinJS.Binding.List([
-        { icono: foto, nombre: 'Josue ', apellido: ' Pedroza', promedio: 6.0 },
-        { icono: foto, nombre: 'Francisco ', apellido: ' Portillo', promedio: 7.0 },
-        { icono: foto, nombre: 'Amanda ', apellido: ' Barra', promedio: 7.0 },
-        { icono: foto, nombre: 'Ximena ', apellido: ' Galavio', promedio: 10.0 },
-        { icono: foto, nombre: 'Fernanda ', apellido: ' Williams', promedio: 10.0 }
-
-    ]);
 
     //hacemos publicas las listas dentro de una especie de variable global Llamada Grupos.
     WinJS.Namespace.define("Grupos", {
         TSM51: tsm51,
-        TSM52: tsm52,
-        TSM53: tsm53,
-        TSM54: tsm54,
-        TSM55: tsm55
+        TSM52: tsm52
     });
 
     
